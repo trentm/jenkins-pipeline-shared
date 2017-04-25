@@ -19,19 +19,16 @@ def call() {
             responseHandle: 'NONE',
             timeout: 10,
             requestBody: """{
+                "jobName": "${env.JOB_NAME}",
+                "nodeName": "${env.NODE_NAME}",
+                "buildId": "${env.BUILD_ID}",
+                "buildUrl": "${env.BUILD_URL}",
+                "startTime": ${currentBuild.timeInMillis},
+                "duration": ${currentBuild.duration},
+                "result": "${buildResult}",
                 "params": {
                     "BRANCH": "${params.BRANCH}"
-                },
-                "currentBuild": {
-                    "startTime": ${currentBuild.timeInMillis},
-                    "duration": ${currentBuild.duration},
-                    "result": "${buildResult}",
-                    "changeSets": ${currentBuild.changeSets}
-                },
-                "JOB_NAME": "${env.JOB_NAME}",
-                "NODE_NAME": "${env.NODE_NAME}",
-                "BUILD_ID": "${env.BUILD_ID}",
-                "BUILD_URL": "${env.BUILD_URL}"
+                }
             }"""
         )
     } else {
