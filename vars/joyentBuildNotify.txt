@@ -1,0 +1,5 @@
+<strong>joyentBuildNotify()</strong>
+
+<p>
+    Notifies the configured `env.JOYENT_BUILD_NOTIFY_URL` of build completion.
+</p>
